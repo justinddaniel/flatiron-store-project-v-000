@@ -16,5 +16,5 @@ end
 
 
 5.times do |i|
-  User.create(:email => "user##{i}@aol.com", :password => "123#{i}")
+  User.create(:email => "user##{i}@aol.com", :password => "jhl89274ds#{i}")
 end
