@@ -1,5 +1,5 @@
 
-<%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
+<%= form_for @user, :url => url_for(:controller => 'users', :action => 'create') do |f| %>
 
   <div class="field">
     <%= f.label :email, "Type your email" %><br>
@@ -7,11 +7,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :password, "Enter your password" %><br>
+    <%= f.label :password, "Enter a strong random password" %><br>
     <%= f.password_field :password %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Log In"  %>
+    <%= f.submit "Sign Up"  %>
   </div>
 <% end %>
