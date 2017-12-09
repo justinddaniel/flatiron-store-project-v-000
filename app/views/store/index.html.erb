@@ -1,7 +1,6 @@
 <% @categories.each do |category| %>
   <%= link_to category.title, category_path(category) %>
 <% end %>
-
-  <% Item.available_items.uniq.each do |item| %>
-    <p><%= item.title %> | <%= "$#{item.price.to_f/100}" %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) if @user %></p>
-  <% end %>
+<ul>
+  <%= render partial: 'items/items', collection: @available_items, as: :item %>
+</ul>
