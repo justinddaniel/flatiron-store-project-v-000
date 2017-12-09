@@ -3,5 +3,7 @@
 <% end %>
 
 <% @items.each do |item| %>
-  <p><%= item.title %> | <%= number_to_currency(item.price) %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) if session[:user_id] %></p>
+  <% if Item.available_items.include?(item) %>
+    <p><%= item.title %> | <%= number_to_currency(item.price) %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) if session[:user_id] %></p>
+  <% end %>
 <% end %>
