@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   root 'store#index', as: 'store'
 
   #sessions -newly created
-  get '/signin', as: 'sessions#new'
-  post "/sessions/create", as: "sessions#create"
-  delete "/signout", as: "sessions#destroy"
+  get '/signin', to: 'sessions#new'
+  post "/sessions/create", to: "sessions#create"
+  delete "/signout", to: "sessions#destroy"
 
   #signup pathway
-  get '/signup', as: 'users#new'
+  get '/signup', to: 'users#new'
 
   #pre-made resources
   resources :items, only: [:show, :index]
