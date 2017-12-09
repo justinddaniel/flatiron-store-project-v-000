@@ -1,8 +1,12 @@
 <nav class="">
     <ul>
         <li> <%= link_to "Store Home", store_path %> </li>
-        <% if !!@cart %>
-          <li> <%= link_to "Cart", cart_path(current_cart) %></li>
+        <% if session[:user_id] %>
+          <li> Signed in as <%= User.find_by(:id => session[:user_id]).email %> </li><br>
+          <li> <%= link_to "Sign out", signout_path %></li><br>
+        <% else %>
+          <li> <%= link_to "Sign In", signin_path %></li><br>
+          <li> <%= link_to "Sign Up", signup_path %></li><br>
         <% end %>
     </ul>
 </nav>
