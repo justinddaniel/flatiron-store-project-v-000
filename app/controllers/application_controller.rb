@@ -3,9 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def index
-    @categories = Category.all
-    @items = Item.all
+  def after_sign_in_path_for(resource)
+    binding.pry
+    store_path
+    # raise current_user.inspect
   end
+
 
 end
