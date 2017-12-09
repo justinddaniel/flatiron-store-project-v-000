@@ -8,10 +8,13 @@ Rails.application.routes.draw do
   post "/sessions/create", as: "sessions#create"
   delete "/signout", as: "sessions#destroy"
 
+  #signup pathway
+  get '/signup', as: 'users#new'
+
   #pre-made resources
   resources :items, only: [:show, :index]
   resources :categories, only: [:show, :index]
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:create, :show]
   resources :carts
   resources :line_items, only: [:create]
   resources :orders, only: [:show]
