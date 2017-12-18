@@ -4,9 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # attr_accessor :current_cart
+
   has_many :carts
-  has_many :orders
-  belongs_to :current_cart, :class_name => "Cart"
+  belongs_to :current_cart, :class_name => "Cart", :foreign_key => "current_cart_id"
+  # has_many :orders
 
   def create_current_cart
     new_cart = carts.create

@@ -12,4 +12,9 @@ class Item < ActiveRecord::Base
     avail_items
   end
 
+  def subtract_from_inventory
+    inventory -= 1
+    inventory
+  end
+
 end
