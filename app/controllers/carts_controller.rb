@@ -7,4 +7,8 @@ class CartsController < ApplicationController
     @cart = current_user.current_cart
   end
 
+  def checkout
+
+  end
+
 end
