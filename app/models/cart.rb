@@ -17,9 +17,18 @@ class Cart < ActiveRecord::Base
       new_item_added = LineItem.find_by(:item_id => new_item_id)
       new_item_added.quantity += 1
       new_item_added.save
+      new_item_added
     else
       new_item_added = self.line_items.build(:item_id => new_item_id)
     end
+  end
+
+  def checkout
+    # binding.pry
+    line_items.each do |li|
+      li.subtract_from_inventory
+    end
+    save
   end
 
 
